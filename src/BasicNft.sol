@@ -11,6 +11,8 @@ contract BasicNft is ERC721 {
         s_tokenCounter = 0;
     }
 
+    // 用户传入一个URI地址用于调用mintNft函数
+    // 这份合约接收到mintNft指令后将用户传入的URI和tokenId对应起来
     function mintNft(string memory tokenUri) public {
         s_tokenIdToUri[s_tokenCounter] = tokenUri;
         _safeMint(msg.sender, s_tokenCounter);
